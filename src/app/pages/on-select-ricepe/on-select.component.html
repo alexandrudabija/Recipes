@@ -1,0 +1,259 @@
+<!-- daca receta a fost deschis ! -->
+<div id="ricipe" *ngIf="this.recipe" class="container-fluid ">
+  <div class="container-fluid ">
+    <h1 class="text-center m-5 text-success">
+      {{ recipe.title }}
+    </h1>
+
+    <div class="container-fluid d-flex justify-content-sm-between row">
+      <img
+        style="border-radius: 20px"
+        class="img-fluid col"
+        alt="recipe"
+        [src]="recipe.image"
+      />
+
+      <div id="aboutFood" class="col container-fluid d-flex justify-content-center row mt-2">
+    
+        <div id="info" class="col-12 container-fluid row">
+
+
+          <div class="col d-flex align-items-center row container-fluid">
+         
+            
+            <div id="infor-recipe" style="color: rgb(188, 71, 73)">
+                   
+              <div class="container-fluid "></div>
+
+
+              <button  class="btn btn-warning container-fluid mb-5"     
+              *ngIf="!isOnList()"
+              (click)="toPrepare()"
+              
+              
+              
+              >Add recipe </button>
+
+              <button class="btn btn-danger  container-fluid mb-5"
+              *ngIf="isOnList()"
+              (click)="toDelete()"
+            >
+            
+              <span>Delete Recipe to List</span>
+
+
+            </button> 
+
+
+              <h2
+                style="background-color: pink"
+                class="p-2 rounded text-center container-fluid"
+              >
+                Ready in {{ recipe.readyInMinutes }} minutes
+              </h2>
+
+              <h2
+                style="background-color: pink"
+                class="p-2 rounded text-center container-fluid"
+              >
+                {{ recipe.servings }} servings
+              </h2>
+
+              <h3
+                style="background-color: pink"
+                class="p-2 rounded text-center container-fluid"
+              >
+                {{ recipe.extendedIngredients.length }} Number of ingredients
+              </h3>
+      
+                
+           
+              
+              
+              </div>
+             
+          
+
+            <div id="typeOfFood" class="col container-fluid">
+              <div *ngIf="recipe.vegetarian">
+                <h5 class="text-light btn btn-success m-1 container-fluid">
+                  Vegetarian
+                </h5>
+              </div>
+
+              <div *ngIf="recipe.vegan">
+                <h5 class="container-fluid btn btn-info m-1">Vegan</h5>
+              </div>
+
+              <div *ngIf="recipe.glutenFree">
+                <h5 class="btn btn-warning m-1 container-fluid">glutenFree</h5>
+              </div>
+
+              <div *ngIf="recipe.diaryFree">
+                <h5 class="btn btn-primary m-1 container-fluid">Diary Free</h5>
+              </div>
+
+              <div *ngIf="recipe.veryHealthy">
+                <h5 class="btn btn-success m-1 container-fluid">
+                  Very Healthy
+                </h5>
+              </div>
+
+              <div *ngIf="recipe.cheap">
+                <h5 class="btn btn-secondary m-1 container-fluid">Cheap</h5>
+              </div>
+            </div>
+          </div>
+
+          <div id="Ingredients" class="col container-fluid">
+            <h2 class="text-center text-success container-fluid">
+              Ingredients
+            </h2>
+
+            <ul 
+              *ngFor="let ingredients of recipe.extendedIngredients"
+              class="container-fluid mt-2 text-center"
+            >
+              <li
+                class="rounded d-flex flex-column justify-content-center container-fluid "
+                style="
+                  background-color: rgb(255, 200, 221);
+                  color: rgb(188, 71, 73);
+                "
+              >
+              <span>{{ ingredients.name }}</span>   
+              
+           
+              
+              </li> 
+
+              <!-- <img src="ingredients.image" width="200px" height="200px" alt=""    style="border-radius: 20px"
+              class="img-fluid col"
+              alt="recipe"> -->
+
+
+
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="prepare" class="container-fluid row">
+      <h1 class="text-success text-center mt-2 container-fluid ">How prepare</h1>
+
+<div class="col container-fluid">
+      <h2 class="text-danger text-center mt-2 container-fluid">Instructions</h2>
+
+
+
+      <div id="steps" *ngFor="let step of recipe.analyzedInstructions[0].steps">
+        <ul class="d-flex justify-content-center container-fluid">
+          <li class="container-fluid  d-flex  flex-column justify-content-center">
+          
+
+            <hr class="rounded p-3" style="background-color: pink">
+<span style=" font-size: 2em;" class="text-center text-info">{{ step.number }} Step</span>  
+
+<div *ngIf="step.equipment.length !== 0" id="Equipment" class="container-fluid text-center">
+     <h4 class="text-danger"> Equipment for this step :</h4>           
+<div  style=" font-size: 2em;" class="text-warning" *ngFor="let equipment  of  step.equipment ">
+
+   {{equipment.name}}
+ </div>
+
+
+</div>
+
+<div
+              *ngIf="step.ingredients.length !== 0"
+              class="rounded text-center text-success"
+          
+            >
+              <h4>ingredients for this step :</h4>
+              <div  style=" font-size: 2em;" *ngFor="let ing of step.ingredients">{{ ing.name }}
+               
+              </div>
+            </div>
+
+
+
+            <p
+              class="rounded text-center d-flex  justify-content-center"
+              style=" font-size: 2em;
+               
+                color: rgb(188, 71, 73);
+              "
+            >
+              {{ step.step }}
+            </p>
+
+            
+          </li>
+        </ul>
+      </div>
+
+
+</div>
+
+
+<div class=" col-12 col-md-3 container-fluid">
+
+
+
+
+
+  <div id="Ingredients" class=" container-fluid">
+    <h2 class="text-center text-success container-fluid">
+      Extended Ingredients 
+    </h2>
+  
+    <div 
+      *ngFor="let ingredients of recipe.extendedIngredients"
+      class="container-fluid mt-2 text-center"
+    >
+      <div
+        class="rounded d-flex flex-column justify-content-center container-fluid "
+        style="
+          background-color: rgb(255, 200, 221);
+          color: rgb(188, 71, 73);">
+      <span class="container-fluid">{{ ingredients.name }}</span>   
+      
+      <div class="container-fluid">
+      <span>Consistency : </span> <span> {{ ingredients.consistency }}</span>  
+    </div>
+
+     <div class="container-fluid">
+      <span class="text-success container-fluid"> Quantity : {{ ingredients.measures.metric.amount }} </span>    <span class="text-success container-fluid"><span> unit : </span> {{ ingredients.measures.metric.unitShort }}</span>
+     </div>
+      
+      </div> 
+  
+      <!-- <img src="ingredients.image" width="200px" height="200px" alt=""    style="border-radius: 20px"
+      class="img-fluid col"
+      alt="recipe"> -->
+  
+  
+  
+      </div>
+
+
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+    </div>
+
+  
+  </div>
+</div>

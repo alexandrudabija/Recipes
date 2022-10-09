@@ -1,0 +1,53 @@
+<nav   class="  d-flex  p-4 justify-content-between container-fluid align-items-center" style="background-color:pink ;">
+   
+ 
+  <div class=""
+          
+          [routerLink]="['/main']"
+        >
+          <h3 style="cursor: pointer; text-transform: capitalize ; color :rgb(188, 71, 73);" 
+          class=" ">Recipes</h3>
+    </div>
+
+
+
+
+
+
+
+
+
+    <div class="d-flex jutify-items-center  ">
+
+
+      <!-- aici se intra in cosul nostru ! -->
+      <button  
+        class="btn btn-outline-success m-1"
+        (click)="toggle()"
+  
+      > <!-- va merge spre app.component.html !  -->
+  
+  
+    
+        <span>My Recipes</span>
+      </button>
+
+
+      <div class="m-1 text-center  ">
+<select class="custom-select form-control text-center container-fluid" (change)="changeLang($any($event.target).value)" >
+  <option class="form-control container-fluid" value="en" [selected]="lang == 'en'"  >English</option>
+  <option class="form-control container-fluid" value="ro" [selected]="lang == 'ro'"  >Romanian</option>
+  <option class="form-control container-fluid " value="ru" [selected]="lang == 'ru'"  >Russian</option>
+  
+</select>
+
+</div>
+    </div>
+
+
+
+
+
+
+  </nav>
+ 

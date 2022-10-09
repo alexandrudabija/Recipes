@@ -1,0 +1,22 @@
+<div class="container-fluid mt-3">
+
+  <div class="container-fluid"  style="cursor: pointer ;">
+    <img [src]="receiveobjinrecipe?.image" [alt]="receiveobjinrecipe?.title" class="container-fluid"     style="border-radius: 20px;"/>
+  </div>
+
+
+  <div class="rounded text-center container-fluid" style=" color: rgb(188, 71, 73);">
+
+    <div class="container-fluid">
+      <span class="container-fluid">{{ receiveobjinrecipe?.title }}</span>
+
+                <div class="container-fluid">
+
+                            <div class="container-fluid">
+                              Ready in {{ this.receiveobjinrecipe?.readyInMinutes }} min 
+                            </div>
+
+                </div>
+    </div>
+  </div>
+</div>

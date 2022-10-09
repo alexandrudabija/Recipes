@@ -1,0 +1,26 @@
+
+<div class="container-fluid d-flex justify-content-end">
+<div   *ngIf="_prepare.currentRecipe" style="height: 85px;background-color:pink ;"
+[@inOutAnimation] class=" d-flex flex-column  justify-items-center 
+text-center  align-items-center p-2 mt-2
+
+  position-absolute    rounded">
+
+<h4 style="color: rgb(188, 71, 73);" class=""> Recipe added </h4>
+
+<h5 class="text-success"> {{_prepare.currentRecipe.title}}</h5>
+</div>
+
+
+
+<!-- <div   *ngIf="_prepare.currentRecipe!=''" 
+[@inOutAnimation] class=" row bg-light position-absolute w-25 p-3 h-25 rounded">
+
+<b class=""> Recipe Delete</b>
+<span class="text-success"> {{_prepare.currentRecipe.title}}</span>
+</div> -->
+
+
+</div>
+
+

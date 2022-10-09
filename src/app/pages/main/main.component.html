@@ -1,0 +1,52 @@
+
+
+<div class="row container-fluid">
+
+ 
+    <!--  #filter prin apelam metoda din app-filter  -->
+
+
+
+
+<!-- o sa fie cate valori for fi in array ! -->
+<div class="container-fluid col-12 col-md-8">
+
+  <main class="container-fluid">
+    <div class="container-fluid text-muted row">
+
+
+      <app-recipe class="col col-md-3 container-fluid " *ngFor="let objs of this.objsfrommain"
+        [receiveobjinrecipe]="objs" [routerLink]="['/onselect', objs.id]"></app-recipe>
+
+
+      <app-info-message class="" *ngIf="objsfrommain.length === 0"></app-info-message>
+
+
+
+    </div>
+  </main>
+
+
+</div>
+
+
+
+<div class=" container-fluid   col-12 col-md-4 " >
+
+ <div class="d-flex justify-content-end"
+ 
+ 
+ ><button style="width:100px; height:30px" (click)="filter.clean()" class="btn btn-outline-danger m-1 ">Clean Filters</button>
+</div>
+
+  <app-filter class="d-flex  justify-content-center"
+  
+  #filter
+  (onSelect)="selectFilter($event)"
+  
+  
+  ></app-filter>
+ 
+</div>
+
+</div>

@@ -1,0 +1,93 @@
+<!-- daca din app.component.ts show este true atunci afisam cosul  -->
+
+<div *ngIf="show"   class=" position-fixed fixed-top h-100  container-fluid d-flex justify-content-center align-items-center " style="background: rgba(255,192,203, 0.7)">
+
+
+<div id="scrollbar" class="w-50 h-50 rounded ">
+
+
+        <div  class= " container-fluid bg-white d-flex justify-content-center align-items-center flex-column rounded">
+   <!-- <div  class="  d-flex justify-content-center align-items-center flex-column rounded"> -->
+          
+          <div class="container-fluid d-flex justify-content-end">
+  
+            <button class="btn btn-outline-danger " (click)="closeModal()">
+         
+              X 
+            
+            </button>
+       </div>
+  
+          <div class="container-fluid ">
+            <h4 class="text-center">My Recipes to prepare</h4>
+          </div>
+
+          <div class="    container-fluid d-flex justify-content-center align-items-center flex-column  mt-2"  *ngIf="recipes">
+
+            <div 
+              *ngFor="let recipe of recipes"
+              class="container-fluid"
+            >
+            <div   class="container-fluid d-flex justify-content-center align-items-center" > 
+              <button (click)="this.toDelete(recipe.id)" class=" m-1 btn btn-outline-danger">Delete</button>
+              
+              
+              <button [routerLink]="['/onselect', this.recipe.id]" class= " m-1 btn btn-outline-danger" (click)="closeModal()">Open</button>
+            
+            <!-- 
+              0
+: 
+{id: 1098357, title: 'Three Ingredient Frozen Pina Colada', readyInMinutes: 5, image: 'https://spoonacular.com/recipeImages/1098357-556x370.jpg'}
+1
+: 
+{id: 639114, title: 'Chocolate Nutella Walnut Cake', readyInMinutes: 45, image: 'https://spoonacular.com/recipeImages/639114-556x370.jpg'}
+2
+: 
+{id: 658579, title: 'Roasted Endive Salad With Prosciutto, Figs and Pistachios', readyInMinutes: 45, image: 'https://spoonacular.com/recipeImages/658579-556x370.jpg'}
+length
+: 
+3
+[[Prototype]]
+: 
+Array(0)
+
+             -->
+            
+            </div>
+
+
+              <div class="container-fluid d-flex justify-content-center align-items-center ">
+                <!-- style=" height: 150x; width: 180px ;" -->
+                <img style=" height: 150x; width: 180px ;"
+                  alt="..."
+                  [src]="recipe.image"
+                  class="rounded container-fluid "
+                />
+
+              
+
+
+              </div>  
+              <div class="container-fluid d-flex justify-content-center align-items-center ">
+                <h6>{{ recipe.title }}</h6>
+              </div>
+              <div class="container-fluid d-flex justify-content-center align-items-center ">
+                Ready in {{ recipe.readyInMinutes }} min
+              </div>
+            </div>
+          </div>
+      
+          <div class="container-fluid d-flex justify-content-center align-items-center " *ngIf="recipes.length < 1">
+            <div
+              class=""
+              
+            >
+              <p class="font-bold">Ups...</p>
+              <p>You don't have any recipes yet. 😨</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+      <!-- </div> -->
+ 
