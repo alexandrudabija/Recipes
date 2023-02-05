@@ -1,0 +1,19 @@
+<app-navbar   (onOpen)="togglebasket()"> </app-navbar>
+
+
+<app-basket 
+*ngIf="showbasket"
+[show]="showbasket"
+
+
+(onClose)="togglebasket()" 
+
+></app-basket>
+
+<app-notification-for-basket></app-notification-for-basket> 
+
+
+ <router-outlet></router-outlet> 
+
+
+

@@ -1,0 +1,165 @@
+<div  class="container-fluid d-flex flex-column justify-content-center  align-items-center ">
+  <!--Country -->
+
+
+
+      <p class="d-flex justify-content-start  container-fluid text-success ">For Country</p>
+
+  <div class=" container-fluid d-flex  justify-content-center ">
+
+
+    <ul class="menu" [ngClass]="this.open1 == true ? 'active' : ''">
+      <div
+        class="toggle"
+        [ngClass]="this.open1 == true ? 'active' : ''"
+        (click)="firstfilter()"
+      >
+        <mat-icon>add</mat-icon>
+      </div>
+
+      <li
+        style=" --i : {{ I }}; --c:{{ cousines.length }};  "
+        *ngFor="let country of cousines; let I = index"
+        (click)="Filter('cuisine', country)"
+        (click)="onclik()"
+        [ngClass]="{
+          active1: isSelected('cuisine', country),
+          ' ': !isSelected('cuisine', country)
+        }"
+      >
+        <button
+          [style]="country.length > 9 ? 'font-size: 10px;' : ''"
+          [ngClass]="{
+            'btn-danger active1': isSelected('cuisine', country),
+            'btn-outline-danger ': !isSelected('cuisine', country)
+          }"
+          class="btn"
+        >
+          {{ country }}
+        </button>
+      </li>
+
+    </ul>
+  </div>
+
+ <p class="d-flex justify-content-start  container-fluid mt-5 text-success ">For Diet</p>
+  <div class="container-fluid  d-flex justify-content-center mt-5">
+   
+
+
+    <ul class="menu" [ngClass]="this.open2 == true ? 'active' : ''">
+      <div
+        class="toggle"
+        [ngClass]="this.open2 == true ? 'active' : ''"
+        (click)="Secondfilter()"
+      >
+        <mat-icon>add</mat-icon>
+      </div>
+
+      <li
+        style=" --i : {{ I }}; --c:{{ diets.length }}; "
+        *ngFor="let diet of diets; let I = index"
+        (click)="Filter('diet', diet)"
+        (click)="onclik()"
+        [ngClass]="{
+          ' active1': isSelected('diet', diet),
+          ' ': !isSelected('diet', diet)
+        }"
+      >
+        <button
+          [style]="diet.length > 9 ? 'font-size: 15px;' : ''"
+          [ngClass]="{
+            'btn-danger active1': isSelected('diet', diet),
+            'btn-outline-danger ': !isSelected('diet', diet)
+          }"
+          class="btn"
+        >
+          {{ diet }}
+        </button>
+      </li>
+    </ul>
+  </div>
+
+  
+  <p class="d-flex justify-content-start  container-fluid  mt-5 text-success ">Avoid Intolerances
+
+    </p> 
+  <div class="container-fluid d-flex  justify-content-center mt-5">
+ 
+
+
+
+    <ul class="menu" [ngClass]="this.open3 == true ? 'active' : ''">
+      <div
+        class="toggle"
+        [ngClass]="this.open3 == true ? 'active' : ''"
+        (click)="therefilter()"
+      >
+        <mat-icon>add</mat-icon>
+      </div>
+
+      <li
+        style=" --i : {{ I }}; --c:{{ intolerances.length }} ;  "
+        *ngFor="let intolerance of intolerances; let I = index"
+        (click)="Filter('intolerances', intolerance)"
+        (click)="onclik()"
+        [ngClass]="{
+          ' active1': isSelected('intolerances', intolerance),
+          ' ': !isSelected('intolerances', intolerance)
+        }"
+      >
+        <button
+          [style]="intolerance.length > 12 ? 'font-size: 15px;' : ''"
+          [ngClass]="{
+            'btn-danger active1': isSelected('intolerances', intolerance),
+            'btn-outline-danger ': !isSelected('intolerances', intolerance)
+          }"
+          class="btn"
+        >
+          {{ intolerance }}
+        </button>
+      </li>
+    </ul>
+  </div>
+
+
+      <p class="d-flex justify-content-start  container-fluid mt-5 text-success ">For types    </p> 
+  <div class="container-fluid d-flex justify-content-center mt-5">
+
+
+
+
+
+    <ul class="menu" [ngClass]="this.open4 == true ? 'active' : ''">
+      <div
+        class="toggle"
+        [ngClass]="this.open4 == true ? 'active' : ''"
+        (click)="fourthfilter()"
+      >
+        <mat-icon>add</mat-icon>
+      </div>
+
+      <li
+        style=" --i : {{ I }}; --c:{{ types.length }} "
+        *ngFor="let type of types; let I = index"
+        (click)="Filter('type', type)"
+        (click)="onclik()"
+        [ngClass]="{
+          active1: isSelected('type', type),
+          ' ': !isSelected('type', type)
+        }"
+      >
+        <button
+          [style]="type.length > 14 ? 'font-size: 15px;' : ''"
+          [ngClass]="{
+            'btn-danger active1': isSelected('type', type),
+            'btn-outline-danger ': !isSelected('type', type)
+          }"
+          class="btn"
+        >
+          {{ type }}
+        </button>
+      </li>
+    </ul>
+  </div>
+</div>
